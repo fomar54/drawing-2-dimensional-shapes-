@@ -60,6 +60,7 @@ ellipse(rightEyeX,rightEyeY,eyeDiameter,eyeDiameter);
 //
 //Nose
 //rect();
+triangle(xNose1,yNose1,xNose2,yNose2,xNose3,yNose3);
 //
 //Mouth
 line(mouthX1,mouthY1,mouthX2,mouthY2);
