@@ -86,9 +86,11 @@ strokeWeight(reset); //
 
 //
 //Measle
+float measleDiameter = smallerDisplayDimension*1/100
+float measleRadius = measleDiameter*1/2;
+
 float measleX = appWidth;
-float measleY = appHeight;
-float measleDiameter = smallerDisplayDimension *1/100; //Very small measle
+float measleY = random( rectFaceX+=measleRadius);
 color red=#FF0000, measleColour=red,whiteReset=#000000; //Note: need range here too
 //rect();
 //random values given other variables (similar to button code)
