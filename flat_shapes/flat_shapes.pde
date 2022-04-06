@@ -47,7 +47,7 @@ rightEyeX = appWidth*2.6/4;
 leftEyeY=appHeight*1/4 ;
 rightEyeY=leftEyeY ;//Best Practice change one line of code 
 eyeDiameter = smallerDisplayDimension*1/4 ;
-mouthX1 = leftEyeX;
+ mouthX1 = leftEyeX;
 mouthY1 = appHeight*3/4;
 mouthX2 = rightEyeX;
 mouthY2 = mouthY1;
@@ -67,31 +67,37 @@ ellipse(faceX,faceY,faceDiameter,faceDiameter);
 
 //
 //Left Eye
-//rect();
+rect(leftEyeX,leftEyeY,eyeDiameter,eyeDiameter);
 ellipse(leftEyeX,leftEyeY,eyeDiameter,eyeDiameter);
 //
 //Right Eye
-//rect();
+rect(rightEyeX,rightEyeY,eyeDiameter,eyeDiameter);
 ellipse(rightEyeX,rightEyeY,eyeDiameter,eyeDiameter);
 
 //
 //Nose
-//rect();
+rect(xNose1,yNose1,xNose2,yNose2,xNose3,yNose3);
 triangle(xNose1,yNose1,xNose2,yNose2,xNose3,yNose3);
 //
 //Mouth
+rect(xNose2,yNose1,xNose3-xNose2,yNose3-yNose1);
 strokeWeight(mouthOpen); //testing: 100=400/4, mouthOpen=height*1/4
 line(mouthX1, mouthY1, mouthX2, mouthY2);
 strokeWeight(reset); //
-
-//
 //Measle
-float measleDiameter = smallerDisplayDimension*1/100
+float measleDiameter = random( smallerDisplayDimension*1/100 , smallerDisplayDimension*1/25); //Range of measle size: small=*1/100, large=4xbigger (*1/25)
 float measleRadius = measleDiameter*1/2;
+float measleX = random( rectFaceX+measleRadius , (( rectFaceX+rectFaceWidth ) - measleRadius ) );
+float measleY = random( rectFaceY+measleRadius , (( rectFaceY+rectFaceHeight ) - measleRadius ) );
+Boolean nightMode=false;//Note
+//color red=#FF0000, measleColour=red, whiteReset=#000000; //Note: need range here too
+color measleColour = (nightMode==false) ? color (255,random(0,50),random(120) ): color (255,random(0,50),0 )  ;//ternary operator fo day;night
+//
+color whiteReset=#000000; //Note: need range here too
+//
+//
+//
 
-float measleX = appWidth;
-float measleY = random( rectFaceX+=measleRadius);
-color red=#FF0000, measleColour=red,whiteReset=#000000; //Note: need range here too
 //rect();
 //random values given other variables (similar to button code)
 noStroke();//S
