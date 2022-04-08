@@ -72,9 +72,8 @@ xNose2 = faceX - leftEyeY*1/2;
 yNose2 = faceY ;
 xNose3 = faceX + leftEyeY*1/2;
 yNose3 = faceY ;
-pic = loadImage ("Human_eye_with_blood_vessels.jpeg");//Diensions: width 400,height 401
-//Find the larger dimenstion for aspect ratio
-int picWidth = ;
+pic = loadImage ("Human_eye_with_blood_vessels.jpeg");////Find the larger dimenstion for aspect ratio
+int picWidth =1920 ;
 int picHeight = 1280;
 if (  picWidth>=picHeight){
 LargerDimension = picWidth ;
@@ -115,14 +114,16 @@ ellipse(faceX,faceY,faceDiameter,faceDiameter);
 //Left Eye
 //rect(leftEyeX-eyeDiameter*1/2, leftEyeY-eyeDiameter*1/2, eyeDiameter, eyeDiameter);
 ellipse(leftEyeX,leftEyeY,eyeDiameter,eyeDiameter);
+
 //
 //Right Eye
 //rect(rightEyeX-eyeDiameter*1/2, rightEyeY-eyeDiameter*1/2, eyeDiameter, eyeDiameter);
 ellipse(rightEyeX,rightEyeY,eyeDiameter,eyeDiameter);
+image(pic,imageX, imageY, imageWidth, imageHeight);
 
 //
 //Nose
-rect(xNose2, yNose1, xNose3-xNose2, yNose3-yNose1);
+//rect(xNose2, yNose1, xNose3-xNose2, yNose3-yNose1);
 triangle(xNose1,yNose1,xNose2,yNose2,xNose3,yNose3);
 //
 //Mouth
@@ -159,5 +160,5 @@ textFont(titlefont,25);//change the number until it fits
 text(title,titleX,titleY, titleWidth, titleHeight);
 fill(restDefaultlink);
 //Rectangle Layout
-rect(rightEyeX-eyeDiameter*1/2, rightEyeY-eyeDiameter*1/2, eyeDiameter, eyeDiameter);
+//rect(rightEyeX-eyeDiameter*1/2, rightEyeY-eyeDiameter*1/2, eyeDiameter, eyeDiameter);
 image(pic,imageX, imageY, imageWidth, imageHeight);
