@@ -1,5 +1,5 @@
 //Global Variables
-int reset, smallerDisplayDimesion, mouthOpen;
+int reset, smallerDisplayDimension, mouthOpen;
 float rectFaceX, rectFaceY, rectFaceWidth, rectFaceHeight;
 float faceX, faceY, faceDiameter;
 float leftEyeX, leftEyeY, rightEyeX, rightEyeY, eyeDiameter; 
@@ -13,49 +13,30 @@ float measleRectX, measleRectY, measleWidth, measleHeight;
 //
 void setup()
 {
-  //Display Geomtery
-  fullScreen();
-  int appWidth = width, appHeight = height; //Swap with displayWidth, displayHeight for testing
-  println (width, height, displayWidth, displayHeight); //Verification of values
-  println(appWidth, appHeight); //Canvas Flexibility
-  //
-  //Display Orientation
-  //Purpose: a few comparisons of IFs to ID orientation (similar to image() aspect ratio calculations)
-  //Computer Tells us the orientation, important for Cell Phone Orientation
-  //-tell user specific orientation
-  //if ( appWidth >= appWidth ) {println("Landscape or Square");} else {println("Portrait");}
-  String ls="Landscape or Square", p="Portrait", DO="Display Orientation:", instruct="Bru, turn your phun";
-  String orientation = ( appWidth >= appHeight ) ? ls : p; //Ternary Operator, repeats IF-ELSE
-  println(DO, orientation); //Verification of value
-  if ( orientation==p ) println(instruct);
-  //With Strings, easier to print to console or canvas
-  /* if ( orientation=="Landscape or Square" ) {
-   //Empty IF
-   } else { 
-   println("Turn your phun"); //FUN
-   }
-   */
-  //
-  //Variable Population: notice using appWidth & appHeight to move between size() & fullScreen()
-  smallerDisplayDimesion = appHeight; //ALWAYS in Landscape
-  reset = smallerDisplayDimesion / smallerDisplayDimesion; //returns "1"
-  rectFaceX = (appWidth*1/2) - (smallerDisplayDimesion*1/2);
+    fullScreen();
+ displaySetup();
+ 
+ 
+//Variable Population: notice using appWidth & appHeight to move between size() & fullScreen()
+  smallerDisplayDimension = appHeight; //ALWAYS in Landscape
+  reset = smallerDisplayDimension / smallerDisplayDimension; //returns "1"
+  rectFaceX = (appWidth*1/2) - (smallerDisplayDimension*1/2);
   rectFaceY = appHeight*0;
-  rectFaceWidth = smallerDisplayDimesion; //Square Shape
-  rectFaceHeight = smallerDisplayDimesion; //Square Shape
+  rectFaceWidth = smallerDisplayDimension; //Square Shape
+  rectFaceHeight = smallerDisplayDimension; //Square Shape
   faceX = appWidth*1/2;
   faceY = appHeight*1/2;
-  faceDiameter = smallerDisplayDimesion;
+  faceDiameter = smallerDisplayDimension;
   leftEyeX = appWidth*1.4/4;
   rightEyeX = appWidth*2.6/4;
   leftEyeY = appHeight*1/4;
   rightEyeY = leftEyeY; //Best Practice: change one line of code
-  eyeDiameter = smallerDisplayDimesion*1/4;
+  eyeDiameter = smallerDisplayDimension*1/4;
   mouthX1 = leftEyeX;
   mouthY1 = appHeight*3/4;
   mouthX2 = rightEyeX;
   mouthY2 = mouthY1;
-  mouthOpen = smallerDisplayDimesion*1/4;
+  mouthOpen = smallerDisplayDimension*1/4;
   xNose1 = faceX;
   yNose1 = leftEyeY;
   xNose2 = faceX - leftEyeY*1/2;
@@ -68,12 +49,13 @@ void setup()
   //rect(rectFaceX, rectFaceY, rectFaceWidth, rectFaceHeight);
   ellipse(faceX, faceY, faceDiameter, faceDiameter);
   //
+   
 }//End setup
 //
 void draw()
 {
   //Measle
-  measleDiameter = random( smallerDisplayDimesion*1/100, smallerDisplayDimesion*1/25); //Range of measle size: small=*1/100, large=4xbigger (*1/25)
+  measleDiameter = random( smallerDisplayDimension*1/100, smallerDisplayDimension*1/25); //Range of measle size: small=*1/100, large=4xbigger (*1/25)
   measleRadius = measleDiameter*1/2;
   measleX = random( rectFaceX+measleRadius, (( rectFaceX+rectFaceWidth ) - measleRadius ) );
   measleY = random( rectFaceY+measleRadius, (( rectFaceY+rectFaceHeight ) - measleRadius ) );
@@ -124,3 +106,4 @@ void mousePressed() {
 }//End mousePressed
 //
 //End Main Program
+//
