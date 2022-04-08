@@ -72,7 +72,7 @@ xNose2 = faceX - leftEyeY*1/2;
 yNose2 = faceY ;
 xNose3 = faceX + leftEyeY*1/2;
 yNose3 = faceY ;
-pic = loadImage ("Human_eye_with_blood_vessels");//Diensions: width 400,height 401
+pic = loadImage ("Human_eye_with_blood_vessels.jpeg");//Diensions: width 400,height 401
 //Find the larger dimenstion for aspect ratio
 int picWidth = 400;
 int picHeight = 401;
@@ -93,10 +93,10 @@ if(heightLarger  == true)imageWidthtRatio = (smallerDimension /LargerDimension )
 if(heightLarger  == true)imageHeightRatio =  (LargerDimension /LargerDimension );
 //Ratio 1.0 simalir to style = "width:auto"(website)
 //Ratio 0.75similar to syle = height:auto (website)
-imageX =   displayWidth*0 ;
-imageY = displayHeight*0;
-imageWidth =displayWidth*imageWidthtRatio ;
-imageHeight =displayHeight*imageHeightRatio ;
+imageX =  appWidth*1.5/4 ;
+imageY =appHeight*1/4  ;
+imageWidth =appWidth*1.5/4 ;
+imageHeight = appHeight*1/4 ;
 if(imageWidth>width)println("EROR:image is too wide ");
 if(imageHeight>height)println("EROR:image is too high ");
 titleX = width*1/5;
