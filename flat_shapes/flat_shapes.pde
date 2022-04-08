@@ -72,7 +72,7 @@ xNose2 = faceX - leftEyeY*1/2;
 yNose2 = faceY ;
 xNose3 = faceX + leftEyeY*1/2;
 yNose3 = faceY ;
-pic = loadImage ("");//Diensions: width 400,height 401
+pic = loadImage ("Human_eye_with_blood_vessels");//Diensions: width 400,height 401
 //Find the larger dimenstion for aspect ratio
 int picWidth = 400;
 int picHeight = 401;
@@ -99,6 +99,11 @@ imageWidth =displayWidth*imageWidthtRatio ;
 imageHeight =displayHeight*imageHeightRatio ;
 if(imageWidth>width)println("EROR:image is too wide ");
 if(imageHeight>height)println("EROR:image is too high ");
+titleX = width*1/5;
+titleY = height*1/10;
+titleWidth = displayWidth*3/5; // Rect ends at 4/5's of the width
+titleHeight = displayHeight*1/10;// ect ends at 2/10's of height 
+
 //
 
 //Face: Circle = Iscribing a Circle in a Sqaure
@@ -108,16 +113,16 @@ ellipse(faceX,faceY,faceDiameter,faceDiameter);
 
 //
 //Left Eye
-rect(leftEyeX,leftEyeY,eyeDiameter,eyeDiameter);
+rect(leftEyeX-eyeDiameter*1/2, leftEyeY-eyeDiameter*1/2, eyeDiameter, eyeDiameter);
 ellipse(leftEyeX,leftEyeY,eyeDiameter,eyeDiameter);
 //
 //Right Eye
-rect(rightEyeX,rightEyeY,eyeDiameter,eyeDiameter);
+rect(rightEyeX-eyeDiameter*1/2, rightEyeY-eyeDiameter*1/2, eyeDiameter, eyeDiameter);
 ellipse(rightEyeX,rightEyeY,eyeDiameter,eyeDiameter);
 
 //
 //Nose
-rect(xNose1,yNose1,xNose2,yNose2,xNose3,yNose3);
+rect(xNose2, yNose1, xNose3-xNose2, yNose3-yNose1);
 triangle(xNose1,yNose1,xNose2,yNose2,xNose3,yNose3);
 //
 //Mouth
@@ -155,5 +160,7 @@ textFont(titlefont,25);//change the number until it fits
 text(title,titleX,titleY, titleWidth, titleHeight);
 fill(restDefaultlink);
 //Rectangle Layout
-rect(rightEyeX,rightEyeY,eyeDiameter,eyeDiameter);
-image(pic,imageX, imageY, imageWidth, imageHeight);}
+rect(rightEyeX-eyeDiameter*1/2, rightEyeY-eyeDiameter*1/2, eyeDiameter, eyeDiameter);
+image(pic,imageX, imageY, imageWidth, imageHeight);
+rect(leftEyeX-eyeDiameter*1/2, leftEyeY-eyeDiameter*1/2, eyeDiameter, eyeDiameter);
+image(pic,imageX, imageY, imageWidth, imageHeight);
