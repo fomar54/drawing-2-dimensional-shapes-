@@ -5,6 +5,14 @@ float faceX,faceY,faceDiameter;
 float leftEyeX,leftEyeY,eyeDiameter,rightEyeX,rightEyeY;
 float mouthX1,mouthY1,mouthX2,mouthY2;
 float xNose1, yNose1, xNose2, yNose2, xNose3, yNose3;
+String title = " what measals look like on a face";
+float titleX,titleY, titleWidth, titleHeight;
+PFont titlefont;
+color black=#150C0C, restDefaultlink=#FAFBFF;
+float imageX, imageY, imageWidth, imageHeight,imageHeightRatio=1.0,imageWidthtRatio=1.0;
+float smallerDimension,LargerDimension;
+PImage pic;
+Boolean heightLarger  = false,widthLarger = false;
 
 //
 //Display Geomtrey 
@@ -12,6 +20,12 @@ fullScreen();
 int appWidth = width, appHeight = height; //Swap with displayWidth, displayHeight for testing
 println (width, height, displayWidth, displayHeight); //Verification of values
 println(appWidth, appHeight); //Canvas Flexibility
+titlefont = createFont("HiraMinProN-W3",55);//Verify the font exists in processing java
+//Fonts from OS (Operating System)
+String[] fontlist = PFont.list(); //To list all fonts available 
+printArray(fontlist);//For listing all possible fonts to chosse from, then creatFont
+titlefont = createFont("HiraMinProN-W3",55);//Verify the font exists in processing java
+
 //
 //Display Orientation
 //Purpose: a few comparisons of IFs to ID orientation (similar to image() aspect ratio calculations)
@@ -58,6 +72,33 @@ xNose2 = faceX - leftEyeY*1/2;
 yNose2 = faceY ;
 xNose3 = faceX + leftEyeY*1/2;
 yNose3 = faceY ;
+pic = loadImage ("");//Diensions: width 400,height 401
+//Find the larger dimenstion for aspect ratio
+int picWidth = 400;
+int picHeight = 401;
+if ( picHeight >= picWidth){
+LargerDimension = picHeight;
+smallerDimension = picWidth ;
+heightLarger = true;
+
+}else{
+ LargerDimension = picWidth;
+smallerDimension = picHeight ;
+widthLarger = true;
+}
+println(smallerDimension, LargerDimension, widthLarger,heightLarger);
+if(widthLarger  == true)imageWidthtRatio =  (smallerDimension /LargerDimension );
+if(widthLarger  == true)imageHeightRatio =  (LargerDimension /LargerDimension );
+if(heightLarger  == true)imageWidthtRatio = (smallerDimension /LargerDimension );
+if(heightLarger  == true)imageHeightRatio =  (LargerDimension /LargerDimension );
+//Ratio 1.0 simalir to style = "width:auto"(website)
+//Ratio 0.75similar to syle = height:auto (website)
+imageX =   displayWidth*0 ;
+imageY = displayHeight*0;
+imageWidth =displayWidth*imageWidthtRatio ;
+imageHeight =displayHeight*imageHeightRatio ;
+if(imageWidth>width)println("EROR:image is too wide ");
+if(imageHeight>height)println("EROR:image is too high ");
 //
 
 //Face: Circle = Iscribing a Circle in a Sqaure
@@ -105,3 +146,14 @@ fill(measleColour);
 ellipse( measleX, measleY, measleDiameter, measleDiameter ); 
 stroke(reset);//reset to 1 pixel
 fill(whiteReset);
+//layout or textspace and typograhical features
+rect(titleX,titleY, titleWidth, titleHeight);
+fill(black);//ink, hexidecmial copied from the color selector
+textAlign(CENTER,CENTER);//Align X&Y, see processing.org/reference
+//values:{[LEFT] [CENTER][RIGHT]&[TOP|CENTRE | BOTTOM|BASELINE}
+textFont(titlefont,25);//change the number until it fits
+text(title,titleX,titleY, titleWidth, titleHeight);
+fill(restDefaultlink);
+//Rectangle Layout
+rect(rightEyeX,rightEyeY,eyeDiameter,eyeDiameter);
+image(pic,imageX, imageY, imageWidth, imageHeight);}
