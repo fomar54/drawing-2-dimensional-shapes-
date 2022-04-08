@@ -8,7 +8,7 @@ float xNose1, yNose1, xNose2, yNose2, xNose3, yNose3;
 String title = " what measals look like on a face";
 float titleX,titleY, titleWidth, titleHeight;
 PFont titlefont;
-color black=#150C0C, restDefaultlink=#FAFBFF;
+color black=#150C0C, restDefaultlink=#FAFBFF,white=#D3D1D1;
 float imageX, imageY, imageWidth, imageHeight,imageHeightRatio=1.0,imageWidthtRatio=1.0;
 float smallerDimension,LargerDimension;
 PImage pic;
@@ -74,16 +74,16 @@ xNose3 = faceX + leftEyeY*1/2;
 yNose3 = faceY ;
 pic = loadImage ("Human_eye_with_blood_vessels.jpeg");//Diensions: width 400,height 401
 //Find the larger dimenstion for aspect ratio
-int picWidth = 400;
-int picHeight = 401;
-if ( picHeight >= picWidth){
-LargerDimension = picHeight;
-smallerDimension = picWidth ;
+int picWidth = ;
+int picHeight = 1280;
+if (  picWidth>=picHeight){
+LargerDimension = picWidth ;
+smallerDimension = picHeight;
 heightLarger = true;
 
 }else{
- LargerDimension = picWidth;
-smallerDimension = picHeight ;
+ LargerDimension = picHeight;
+smallerDimension =  picWidth;
 widthLarger = true;
 }
 println(smallerDimension, LargerDimension, widthLarger,heightLarger);
@@ -113,11 +113,11 @@ ellipse(faceX,faceY,faceDiameter,faceDiameter);
 
 //
 //Left Eye
-rect(leftEyeX-eyeDiameter*1/2, leftEyeY-eyeDiameter*1/2, eyeDiameter, eyeDiameter);
+//rect(leftEyeX-eyeDiameter*1/2, leftEyeY-eyeDiameter*1/2, eyeDiameter, eyeDiameter);
 ellipse(leftEyeX,leftEyeY,eyeDiameter,eyeDiameter);
 //
 //Right Eye
-rect(rightEyeX-eyeDiameter*1/2, rightEyeY-eyeDiameter*1/2, eyeDiameter, eyeDiameter);
+//rect(rightEyeX-eyeDiameter*1/2, rightEyeY-eyeDiameter*1/2, eyeDiameter, eyeDiameter);
 ellipse(rightEyeX,rightEyeY,eyeDiameter,eyeDiameter);
 
 //
@@ -126,7 +126,6 @@ rect(xNose2, yNose1, xNose3-xNose2, yNose3-yNose1);
 triangle(xNose1,yNose1,xNose2,yNose2,xNose3,yNose3);
 //
 //Mouth
-rect(xNose2,yNose1,xNose3-xNose2,yNose3-yNose1);
 strokeWeight(mouthOpen); //testing: 100=400/4, mouthOpen=height*1/4
 line(mouthX1, mouthY1, mouthX2, mouthY2);
 strokeWeight(reset); //
@@ -153,7 +152,7 @@ stroke(reset);//reset to 1 pixel
 fill(whiteReset);
 //layout or textspace and typograhical features
 rect(titleX,titleY, titleWidth, titleHeight);
-fill(black);//ink, hexidecmial copied from the color selector
+fill(white);//ink, hexidecmial copied from the color selector
 textAlign(CENTER,CENTER);//Align X&Y, see processing.org/reference
 //values:{[LEFT] [CENTER][RIGHT]&[TOP|CENTRE | BOTTOM|BASELINE}
 textFont(titlefont,25);//change the number until it fits
@@ -161,6 +160,4 @@ text(title,titleX,titleY, titleWidth, titleHeight);
 fill(restDefaultlink);
 //Rectangle Layout
 rect(rightEyeX-eyeDiameter*1/2, rightEyeY-eyeDiameter*1/2, eyeDiameter, eyeDiameter);
-image(pic,imageX, imageY, imageWidth, imageHeight);
-rect(leftEyeX-eyeDiameter*1/2, leftEyeY-eyeDiameter*1/2, eyeDiameter, eyeDiameter);
 image(pic,imageX, imageY, imageWidth, imageHeight);
