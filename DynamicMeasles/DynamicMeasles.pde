@@ -10,6 +10,15 @@ float measleDiameter, measleRadius, measleX, measleY;
 Boolean nightMode=false;
 color measleColour, whiteReset;
 float measleRectX, measleRectY, measleWidth, measleHeight;
+String title = " what measals look like on a face";
+float titleX,titleY, titleWidth, titleHeight;
+PFont titlefont;
+color black=#150C0C, restDefaultlink=#FAFBFF,white=#D3D1D1;
+float imageX, imageY, imageWidth, imageHeight,imageHeightRatio=1.0,imageWidthtRatio=1.0;
+float smallerDimension,LargerDimension;
+PImage pic;
+Boolean heightLarger  = false,widthLarger = false;
+
 //
 void setup()
 {
@@ -43,12 +52,42 @@ void setup()
   yNose2 = faceY ;
   xNose3 = faceX + leftEyeY*1/2;
   yNose3 = faceY ;
+  imageX =  appWidth*1.5/4 ;
+imageY =appHeight*1/4  ;
+imageWidth =appWidth*1.5/4 ;
+imageHeight = appHeight*1/4 ;
+if(imageWidth>width)println("EROR:image is too wide ");
+if(imageHeight>height)println("EROR:image is too high ");
+titleX = width*1/5;
+titleY = height*1/10;
+titleWidth = displayWidth*3/5; // Rect ends at 4/5's of the width
+titleHeight = displayHeight*1/10;// ect ends at 2/10's of height 
+  pic = loadImage ("Human_eye_with_blood_vessels.jpeg");////Find the larger dimenstion for aspect ratio
+int picWidth =1920 ;
+int picHeight = 1280;
+if (  picWidth>=picHeight){
+LargerDimension = picWidth ;
+smallerDimension = picHeight;
+heightLarger = true;
   //
   //Face: Circle = Inscribing a Circle in a Square
   //Center a circle on display orientation
   //rect(rectFaceX, rectFaceY, rectFaceWidth, rectFaceHeight);
   ellipse(faceX, faceY, faceDiameter, faceDiameter);
   //
+  }else{
+ LargerDimension = picHeight;
+smallerDimension =  picWidth;
+widthLarger = true;
+}
+println(smallerDimension, LargerDimension, widthLarger,heightLarger);
+if(widthLarger  == true)imageWidthtRatio =  (smallerDimension /LargerDimension );
+if(widthLarger  == true)imageHeightRatio =  (LargerDimension /LargerDimension );
+if(heightLarger  == true)imageWidthtRatio = (smallerDimension /LargerDimension );
+if(heightLarger  == true)imageHeightRatio =  (LargerDimension /LargerDimension );
+//Ratio 1.0 simalir to style = "width:auto"(website)
+//Ratio 0.75similar to syle = height:auto (website)
+ 
    
 }//End setup
 //
@@ -97,6 +136,18 @@ void draw()
   //comparison rect() line only, no caps, no strokeWeight
   //rect(mouthX1, mouthY1, mouthWidth, mouthHeight); 
   //
+ //layout or textspace and typograhical features
+rect(titleX,titleY, titleWidth, titleHeight);
+fill(white);//ink, hexidecmial copied from the color selector
+textAlign(CENTER,CENTER);//Align X&Y, see processing.org/reference
+//values:{[LEFT] [CENTER][RIGHT]&[TOP|CENTRE | BOTTOM|BASELINE}
+textFont(titlefont,25);//change the number until it fits
+text(title,titleX,titleY, titleWidth, titleHeight);
+fill(restDefaultlink);
+//Rectangle Layout
+//rect(rightEyeX-eyeDiameter*1/2, rightEyeY-eyeDiameter*1/2, eyeDiameter, eyeDiameter);
+image(pic,imageX, imageY, imageWidth, imageHeight);
+//
 }//End draw
 //
 void keyPressed() {
