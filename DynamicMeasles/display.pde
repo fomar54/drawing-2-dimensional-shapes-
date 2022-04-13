@@ -1,7 +1,7 @@
 void displaySetup(){};
 //Display Geomtery
   int appWidth = width, appHeight = height; //Swap with displayWidth, displayHeight for testing
-  println (width, height, displayWidth, displayHeight); //Verification of values
+  println width, height, displayWidth, displayHeight); //Verification of values
   println(appWidth, appHeight); //Canvas Flexibility
   //
   //Display Orientation
