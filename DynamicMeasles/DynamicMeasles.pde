@@ -74,7 +74,7 @@ heightLarger = true;
   //Center a circle on display orientation
   //rect(rectFaceX, rectFaceY, rectFaceWidth, rectFaceHeight);
   ellipse(faceX, faceY, faceDiameter, faceDiameter);
-  //
+  
   }else{
  LargerDimension = picHeight;
 smallerDimension =  picWidth;
@@ -119,8 +119,9 @@ void draw()
   ellipse(leftEyeX, leftEyeY, eyeDiameter, eyeDiameter);
   //
   //Right Eye
-  //rect(rightEyeX-eyeDiameter*1/2, rightEyeY-eyeDiameter*1/2, eyeDiameter, eyeDiameter);
-  ellipse(rightEyeX, rightEyeY, eyeDiameter, eyeDiameter);
+  rect(rightEyeX-eyeDiameter*1/2, rightEyeY-eyeDiameter*1/2, eyeDiameter, eyeDiameter);
+  ellipse(rightEyeX, rightEyeY, eyeDiameter, eyeDiameter );
+image(pic,rightEyeX-eyeDiameter*1/2, rightEyeY-eyeDiameter*1/2, eyeDiameter, eyeDiameter);
   //
   //Nose
   //rect(xNose2, yNose1, xNose3-xNose2, yNose3-yNose1);
