@@ -21,31 +21,39 @@ color buttonColour, blue=#94CCDB, red=#B71414, resetWhite;
 Boolean heightLarger  = false, widthLarger = false;
 
 //
-
+int largerDimension;
 void setup()
 {
   fullScreen();
   //Display Geomtery
-  int appWidth = width, appHeight = height; //Swap with displayWidth, displayHeight for testing
+  int appWidth = displayWidth, appHeight = displayHeight; //Swap with displayWidth, displayHeight for testing
   println (width, height, displayWidth, displayHeight); //Verification of values
   println(appWidth, appHeight); //Canvas Flexibility
   //
-  /
-  displaySetup();
+  int picWidth = 600; //NOTE: mine not yours
+  int picHeight = 748; //NOTE: mine not yours
+  
+//if ( appWidth >= appWidth ) {println("Landscape or Square");} else {println("Portrait");}
+String ls="Landscape or Square", p="Portrait", DO="Display Orientation:", instruct="Bru, turn your phun";
+String orientation = ( appWidth >= appHeight ) ? ls : p; //Ternary Operator, repeats IF-ELSE
 
-
-  populationSetup();
-
-  //
+displaySetup();
   //Face: Circle = Inscribing a Circle in a Square
   //Center a circle on display orientation
   //rect(rectFaceX, rectFaceY, rectFaceWidth, rectFaceHeight);
   ellipse(faceX, faceY, faceDiameter, faceDiameter);
-
-else {
-  LargerDimension = picHeight;
-  smallerDimension =  picWidth;
-  widthLarger = true;
+  
+ 
+ populationSetup();
+if ( picWidth >= picHeight ) { //ID Larger Dimension: Landscape and Square
+    largerDimension = picWidth;
+    smallerDimension = picHeight;
+    widthLarger = true;
+  } else { //ID Larger Dimension: Portrait
+    largerDimension = picHeight;
+    smallerDimension = picWidth;
+    heightLarger = true;
+  } 
 
   println(smallerDimension, LargerDimension, widthLarger, heightLarger);
 
@@ -53,6 +61,7 @@ else {
   if (widthLarger  == true)imageHeightRatio =  (LargerDimension /LargerDimension );
   if (heightLarger  == true)imageWidthtRatio = (smallerDimension /LargerDimension );
   if (heightLarger  == true)imageHeightRatio =  (LargerDimension /LargerDimension );
+
   //Ratio 1.0 simalir to style = "width:auto"(website)
   //Ratio 0.75similar to syle = height:auto (website)
   //Landscape, not portrait nor square
@@ -66,15 +75,17 @@ else {
  
   if ( displayOrientation==landscape ) appHeight = displayHeight; 
   println (appWidth, appHeight);
+
   int smallerDisplayDimension = appHeight;
   int canvasCenter = smallerDisplayDimension*1/2; //thinking experiment
   quitButtonX = (appWidth*1/2) - appWidth*1/4; //1/4 on one-half, 1/4 on other half
   quitButtonY = canvasCenter - appHeight*1/4;
   quitButtonWidth = appWidth*1/2;
-  quitButtonHeight = appHeight*1/2;
+ quitButtonHeight = appHeight*1/2;}
+  
 
 
-}
+
 //End setup
 
 void draw()
@@ -86,10 +97,13 @@ void draw()
   ellipse(leftEyeX, leftEyeY, eyeDiameter, eyeDiameter);
   //
   //Right Eye
-  /rect(rightEyeX-eyeDiameter*1/2, rightEyeY-eyeDiameter*1/2, eyeDiameter, eyeDiameter);
+  rect(rightEyeX-eyeDiameter*1/2, rightEyeY-eyeDiameter*1/2, eyeDiameter, eyeDiameter);
+  tint(255,146);
   ellipse(rightEyeX, rightEyeY, eyeDiameter, eyeDiameter );
   image(pic, rightEyeX-eyeDiameter*1/2, rightEyeY-eyeDiameter*1/2, eyeDiameter, eyeDiameter);
   //
+
+//
 
   //Nose
   //rect(xNose2, yNose1, xNose3-xNose2, yNose3-yNose1);
