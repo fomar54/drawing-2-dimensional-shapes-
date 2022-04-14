@@ -1,4 +1,4 @@
-void populationSetup(){;
+void populationSetup(){
 //Variable Population: notice using appWidth & appHeight to move between size() & fullScreen()
   smallerDisplayDimension = appHeight; //ALWAYS in Landscape
   reset = smallerDisplayDimension / smallerDisplayDimension; //returns "1"
@@ -41,6 +41,7 @@ int picHeight = 1280;
 if (  picWidth>=picHeight);
 LargerDimension = picWidth ;
 smallerDimension = picHeight;
- heightLarger = true;}
+ heightLarger = true;
+ }
 
 //End of populationSetup 
