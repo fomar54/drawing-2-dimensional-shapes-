@@ -1,7 +1,6 @@
 void populationSetup(){
 //Variable Population: notice using appWidth & appHeight to move between size() & fullScreen()
   smallerDisplayDimension = appHeight; //ALWAYS in Landscape
-  reset = smallerDisplayDimension / smallerDisplayDimension; //returns "1"
   rectFaceX = (appWidth*1/2) - (smallerDisplayDimension*1/2);
   rectFaceY = appHeight*0;
   rectFaceWidth = smallerDisplayDimension; //Square Shape
