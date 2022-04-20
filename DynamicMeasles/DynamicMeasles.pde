@@ -1,4 +1,5 @@
 //Global Variables
+int appWidth, appHeight;
 int reset, smallerDisplayDimension, mouthOpen;
 float rectFaceX, rectFaceY, rectFaceWidth, rectFaceHeight;
 float faceX, faceY, faceDiameter;
@@ -22,12 +23,12 @@ Boolean heightLarger  = false, widthLarger = false;
 
 //
 int largerDimension;
-void setup()
-{
+void setup(){
   fullScreen();
   //Display Geomtery
+    println (width, height, displayWidth, displayHeight); //Verification of values
+
   int appWidth = displayWidth, appHeight = displayHeight; //Swap with displayWidth, displayHeight for testing
-  println (width, height, displayWidth, displayHeight); //Verification of values
   println(appWidth, appHeight); //Canvas Flexibility
   //
   int picWidth = 600; //NOTE: mine not yours
@@ -37,7 +38,7 @@ void setup()
 String ls="Landscape or Square", p="Portrait", DO="Display Orientation:", instruct="Bru, turn your phun";
 String orientation = ( appWidth >= appHeight ) ? ls : p; //Ternary Operator, repeats IF-ELSE
 
-displaySetup();
+
   //Face: Circle = Inscribing a Circle in a Square
   //Center a circle on display orientation
   //rect(rectFaceX, rectFaceY, rectFaceWidth, rectFaceHeight);
@@ -78,10 +79,12 @@ if ( picWidth >= picHeight ) { //ID Larger Dimension: Landscape and Square
 
   int smallerDisplayDimension = appHeight;
   int canvasCenter = smallerDisplayDimension*1/2; //thinking experiment
-  quitButtonX = (appWidth*1/2) - appWidth*1/4; //1/4 on one-half, 1/4 on other half
-  quitButtonY = canvasCenter - appHeight*1/4;
-  quitButtonWidth = appWidth*1/2;
- quitButtonHeight = appHeight*1/2;}
+  ;
+  
+  quitButtonX = (appWidth*1/2) - appWidth*1/8; //1/4 on one-half, 1/4 on other half
+  quitButtonY = canvasCenter - appHeight*1/8;
+  quitButtonWidth = appWidth*1/4;
+ quitButtonHeight = appHeight*1/4;}
   
 
 
