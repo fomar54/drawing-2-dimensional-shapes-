@@ -1,6 +1,11 @@
-void MesalesDraw(){;
-//Measle
-  measleDiameter = random( smallerDisplayDimension*1/100, smallerDisplayDimension*1/25); //Range of measle size: small=*1/100, large=4xbigger (*1/25)
+//Global Variables
+float measleDiameter, measleRadius, measleX, measleY;
+float measleRectX, measleRectY, measleWidth, measleHeight;
+color measleColour;
+//
+void measleDraw() {
+  //Measle
+  measleDiameter = random( smallerDisplayDimesion*1/100, smallerDisplayDimesion*1/25); //Range of measle size: small=*1/100, large=4xbigger (*1/25)
   measleRadius = measleDiameter*1/2;
   measleX = random( rectFaceX+measleRadius, (( rectFaceX+rectFaceWidth ) - measleRadius ) );
   measleY = random( rectFaceY+measleRadius, (( rectFaceY+rectFaceHeight ) - measleRadius ) );
@@ -19,6 +24,5 @@ void MesalesDraw(){;
   ellipse( measleX, measleY, measleDiameter, measleDiameter ); 
   stroke(reset); //reset to 1 pixel
   fill(whiteReset); //reset to first colour (i.e. blackReset)
-
-}
-//End of MesalesDraw 
+  //
+}//End measleDraw
