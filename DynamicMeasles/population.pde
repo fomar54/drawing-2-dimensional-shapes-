@@ -27,6 +27,7 @@ void populationSetup(){
   imageX =  appWidth*1.5/4 ;
   largerDimension = imageWidth;
   smallerDimension = imageHeight;
+  
 imageY =appHeight*1/4  ;
 imageWidth =appWidth*1.5/4 ;
 imageHeight = appHeight*1/4 ;
