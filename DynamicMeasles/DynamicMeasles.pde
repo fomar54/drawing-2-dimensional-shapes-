@@ -20,6 +20,7 @@ String buttonText1= "Quit";
 void setup(){
   fullScreen();
   //Display Geomtery
+    faceSetup();
     println (width, height, displayWidth, displayHeight); //Verification of values
 int appWidth = width, appHeight = height; //Swap with displayWidth, displayHeight for testing
   println (width, height, displayWidth, displayHeight); //Verification of values
@@ -82,71 +83,17 @@ void draw()
 {
   textFont(titlefont,25);
   text(title,titleX,titleY, titleWidth, titleHeight);
-  textFont(buttonFont,5);
-   text(buttonText1,quitButtonX, quitButtonY, quitButtonWidth, quitButtonHeight);
-
+  
   quitButtonDraw();
-  MesalesDraw();
+ measleDraw();
   leftEyeDraw();
   rightEyeDraw();
   noseDraw();
   mouthDraw();
 
- /*//Measle
- 
-  measleDiameter = random( smallerDisplayDimension*1/100, smallerDisplayDimension*1/25); //Range of measle size: small=*1/100, large=4xbigger (*1/25)
-  measleRadius = measleDiameter*1/2;
-  measleX = random( rectFaceX+measleRadius, (( rectFaceX+rectFaceWidth ) - measleRadius ) );
-  measleY = random( rectFaceY+measleRadius, (( rectFaceY+rectFaceHeight ) - measleRadius ) );
-  nightMode=false; //Note: IF-ELSE similar to ternary operator
-  measleColour = ( nightMode==false ) ? color( 255, random(0, 50), random(120) ) : color( 255, random(0, 50), 0 ) ; //ternary operator for day:night
-  whiteReset=#FFFFFF;
-  //
-  measleRectX = measleX-measleDiameter*1/2;
-  measleRectY = measleY-measleDiameter*1/2;
-  measleWidth = measleDiameter;
-  measleHeight = measleDiameter;
-  rect( measleRectX, measleRectY, measleWidth, measleHeight );
-  //random values given other variables (similar to button code)
-  noStroke(); //Shape outline
-  fill(measleColour);
-  ellipse( measleX, measleY, measleDiameter, measleDiameter ); 
-  stroke(reset); //reset to 1 pixel
-  fill(whiteReset); //reset to first colour (i.e. blackReset)
-  //
-  //Left Eye
-  rect(leftEyeX-eyeDiameter*1/2, leftEyeY-eyeDiameter*1/2, eyeDiameter, eyeDiameter);
-  ellipse(leftEyeX, leftEyeY, eyeDiameter, eyeDiameter);
-  //
-  //Right Eye
-  rect(rightEyeX-eyeDiameter*1/2, rightEyeY-eyeDiameter*1/2, eyeDiameter, eyeDiameter);
-  ellipse(rightEyeX, rightEyeY, eyeDiameter, eyeDiameter);
-  fill(imageWidth,imageHeight);
-  image(pic, imageX, imageY, imageWidth, imageHeight);
 
-  //
-  //Nose
- rect(xNose2, yNose1, xNose3-xNose2, yNose3-yNose1);
-  triangle(xNose1, yNose1, xNose2, yNose2, xNose3, yNose3);
-  //
-  //Mouth
-  int mouthWidth = int ( mouthX2 - mouthX1 ); //length=end-beginning
-  int mouthHeight = mouthOpen;
-  //rect(mouthX1-mouthHeight*1/2, mouthY1-mouthHeight*1/2, mouthWidth+mouthOpen, mouthHeight);
-  strokeWeight(mouthOpen); //testing: 100=400/4, mouthOpen=height*1/4
-  line(mouthX1, mouthY1, mouthX2, mouthY2);
-  strokeWeight(reset); //reset to 1 pixel
-  //comparison rect() line only, no caps, no strokeWeight
-  rect(mouthX1, mouthY1, mouthWidth, mouthHeight); 
-  //
-
-//
-*/
  }//End draw
 void keyPressed() {
-  //Quit KeyBoard Button
-  if ( key=='Q' || key=='q' ) exit(); //Key Board is separated on key-variables: key & keyCode
-  //
 }//End keyPressed
 //
 void mousePressed() {
