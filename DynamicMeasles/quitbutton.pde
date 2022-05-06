@@ -20,5 +20,8 @@ void quitButtonDraw(){
   fill(buttonColour);
   rect ( quitButtonX, quitButtonY, quitButtonWidth, quitButtonHeight );
   fill (resetWhite);
+  textFont(buttonFont,5);
+   text(buttonText1,quitButtonX, quitButtonY, quitButtonWidth, quitButtonHeight);
+
 }
 //End of quitButtonDraw 
