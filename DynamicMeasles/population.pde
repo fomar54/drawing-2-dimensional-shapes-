@@ -25,6 +25,8 @@ void populationSetup(){
   xNose3 = faceX + leftEyeY*1/2;
   yNose3 = faceY ;
   imageX =  appWidth*1.5/4 ;
+  largerDimension = imageWidth;
+  smallerDimension = imageHeight;
 imageY =appHeight*1/4  ;
 imageWidth =appWidth*1.5/4 ;
 imageHeight = appHeight*1/4 ;
@@ -34,12 +36,10 @@ titleX = width*1/5;
 titleY = height*1/10;
 titleWidth = displayWidth*3/5; // Rect ends at 4/5's of the width
 titleHeight = displayHeight*1/10;// ect ends at 2/10's of height 
-  pic = loadImage ("Human_eye_with_blood_vessels.jpeg");////Find the larger dimenstion for aspect ratio
+  pic = loadImage ("download.jpeg");////Find the larger dimenstion for aspect ratio
 int picWidth =1920 ;
 int picHeight = 1280;
 if (  picWidth>=picHeight);
-LargerDimension = picWidth ;
-smallerDimension = picHeight;
  heightLarger = true;
  }
 
