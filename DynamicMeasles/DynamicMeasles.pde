@@ -16,7 +16,6 @@ Boolean heightLarger = false, widthLarger = false;
 float eyeDiameter; 
 String buttonText1= "Quit";
 
-
 void setup(){
   fullScreen();
   //Display Geomtery
@@ -25,8 +24,7 @@ void setup(){
 int appWidth = width, appHeight = height; //Swap with displayWidth, displayHeight for testing
   println (width, height, displayWidth, displayHeight); //Verification of values
   println(appWidth, appHeight); //Canvas Flexibility
- 
-   //
+    
   int picWidth = 600; //NOTE: mine not yours
   int picHeight = 748; //NOTE: mine not yours
   
@@ -48,9 +46,10 @@ if ( picWidth >= picHeight ) {
   //rect(rectFaceX, rectFaceY, rectFaceWidth, rectFaceHeight);
   ellipse(faceX, faceY, faceDiameter, faceDiameter);
   
- rect(titleX,titleY, titleWidth, titleHeight);
+ 
 
  populationSetup();
+  buttonFont = createFont ("Serif", 67);
 
   //Ratio 1.0 simalir to style = "width:auto"(website)
   //Ratio 0.75similar to syle = height:auto (website)
@@ -74,7 +73,6 @@ if ( picWidth >= picHeight ) {
   quitButtonY =  appHeight*(13.0/15.0);
   quitButtonWidth = appWidth*(1.0/3.0)*(1.0/5.0);
  quitButtonHeight = appHeight*(1.0/3.0)*(1.0/5.0);
-  buttonFont = createFont ("Serif", 55);
 titlefont = createFont("Serif",55);
 
 }//End setup
@@ -82,7 +80,11 @@ titlefont = createFont("Serif",55);
 void draw()
 {
   textFont(titlefont,25);
-  text(title,titleX,titleY, titleWidth, titleHeight);
+      text(title,titleX,titleY, titleWidth, titleHeight);
+  textAlign (CENTER, CENTER); //Align X&Y, see Processing.org / Reference
+  //Values: [LEFT | CENTER | RIGHT] & [TOP | CENTER | BOTTOM | BASELINE]
+ 
+  rect(titleX,titleY, titleWidth, titleHeight);
   
   quitButtonDraw();
  measleDraw();
