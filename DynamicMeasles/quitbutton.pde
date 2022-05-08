@@ -20,8 +20,10 @@ void quitButtonDraw(){
   fill(buttonColour);
   rect ( quitButtonX, quitButtonY, quitButtonWidth, quitButtonHeight );
   fill (resetWhite);
-  textFont(buttonFont,5);
+  textFont(buttonFont,23);
    text(buttonText1,quitButtonX, quitButtonY, quitButtonWidth, quitButtonHeight);
-
+textAlign (CENTER, CENTER); //Align X&Y, see Processing.org / Reference
+  //Values: [LEFT | CENTER | RIGHT] & [TOP | CENTER | BOTTOM | BASELINE]
+  
 }
 //End of quitButtonDraw 
