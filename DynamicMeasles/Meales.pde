@@ -17,7 +17,7 @@ void measleDraw() {
   measleRectY = measleY-measleDiameter*1/2;
   measleWidth = measleDiameter;
   measleHeight = measleDiameter;
-  //rect( measleRectX, measleRectY, measleWidth, measleHeight );
+  rect( measleRectX, measleRectY, measleWidth, measleHeight );
   //random values given other variables (similar to button code)
   noStroke(); //Shape outline
   fill(measleColour);
