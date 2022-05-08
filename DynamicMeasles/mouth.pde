@@ -11,5 +11,5 @@ void mouthDraw() {
   line(mouthX1, mouthY1, mouthX2, mouthY2);
   strokeWeight(reset); //reset to 1 pixel
   //comparison rect() line only, no caps, no strokeWeight
-  //rect(mouthX1, mouthY1, mouthWidth, mouthHeight); 
+  rect(mouthX1, mouthY1, mouthWidth, mouthHeight); 
 }//End mouthDraw
