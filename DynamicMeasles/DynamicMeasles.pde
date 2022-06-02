@@ -19,7 +19,7 @@ String buttonText1= "Quit";
 void setup(){
   fullScreen();
   //Display Geomtery
-    faceSetup();
+
     println (width, height, displayWidth, displayHeight); //Verification of values
 int appWidth = width, appHeight = height; //Swap with displayWidth, displayHeight for testing
   println (width, height, displayWidth, displayHeight); //Verification of values
@@ -85,7 +85,7 @@ void draw()
   //Values: [LEFT | CENTER | RIGHT] & [TOP | CENTER | BOTTOM | BASELINE]
  
   rect(titleX,titleY, titleWidth, titleHeight);
-  
+      faceSetup();
   quitButtonDraw();
  measleDraw();
   leftEyeDraw();
